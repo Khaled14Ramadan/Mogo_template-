@@ -1,0 +1,7 @@
+
+$numOfPx: 16 ;
+
+@function convertToRem($px){
+    $res: $px / $numOfPx;
+    @return #{$res}rem;
+}

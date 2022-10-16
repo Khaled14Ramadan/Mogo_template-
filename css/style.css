@@ -1,0 +1,586 @@
+:root {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: Kaushan;
+  src: url("../fonts/KaushanScript-Regular.woff");
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-Regular.woff");
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url("../fonts/Montserrat-Bold.woff");
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+p {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: "Roboto";
+  color: #999999;
+  line-height: 24px;
+}
+
+.heading h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-family: "Kaushan";
+}
+.heading h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+.heading h2::after {
+  content: "";
+  height: 3px;
+  width: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f38181;
+}
+
+.icon {
+  color: #95e1d3;
+}
+
+.UpBtn {
+  width: 2rem;
+  height: 2rem;
+  bottom: 2rem;
+  right: 1rem;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.UpBtn .bttnUP {
+  background-color: #f38181;
+  border: none;
+}
+.UpBtn .bttnUP::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 0 solid white;
+  border-width: 2px 2px 0 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.navbar .navbar-brand {
+  font-size: 1.875rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+.navbar .nav-item {
+  margin-right: 3rem;
+}
+.navbar .nav-item .nav-link {
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+.navbar .nav-item .nav-link.active, .navbar .nav-item .nav-link:hover {
+  color: #fbe389;
+  border-bottom: 3px solid #fbe389;
+}
+
+header {
+  background-image: url(../images/bg-header.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #e2cc7b 0%, #db7474 100%);
+  opacity: 0.9;
+}
+header .hero-section .contant h3 {
+  font-size: 3.125rem;
+  font-weight: 400;
+  font-family: "Kaushan";
+}
+header .hero-section .contant h1 {
+  font-size: 7.5rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+  line-height: 6rem;
+}
+header .hero-section .contant h1::after {
+  content: "";
+  width: 10%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+header .hero-section .contant .btn-learnMore {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+  border: 3px solid white;
+  background-color: transparent;
+}
+header .hero-section .carousel-indicators {
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+header .hero-section .carousel-indicators [data-bs-target] {
+  text-indent: 0;
+  width: 90%;
+  position: relative;
+}
+header .hero-section .carousel-indicators [data-bs-target].active + p {
+  opacity: 1;
+}
+header .hero-section .carousel-indicators .active[data-bs-target]::before {
+  content: "";
+  width: 25%;
+  height: 3px;
+  background-color: #f38181;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+header .hero-section .carousel-indicators .carousel-text {
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+header .hero-section .carousel-indicators .carousel-text .carousel-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+
+.aboutUs .image,
+.meet-our-team .image {
+  z-index: 10;
+}
+.aboutUs .image:hover,
+.meet-our-team .image:hover {
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 0px #95e1d3;
+  z-index: -1;
+}
+.aboutUs .overlaye,
+.meet-our-team .overlaye {
+  opacity: 0;
+  background-image: linear-gradient(0deg, #e2cc7b 0%, #db7474 100%);
+  transition: all 1s;
+}
+.aboutUs .image:hover .overlaye,
+.meet-our-team .image:hover .overlaye {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+}
+.aboutUs .contant,
+.meet-our-team .contant {
+  display: none;
+}
+.aboutUs .contant p,
+.meet-our-team .contant p {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+.aboutUs .image:hover .contant,
+.meet-our-team .image:hover .contant {
+  display: block;
+}
+
+.facts {
+  background-color: #95e1d3;
+}
+.facts .fact .number {
+  font-size: 4.5rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+.facts .fact .text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+
+.services .lineRow {
+  padding-top: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.services .service {
+  padding: 1.5rem 0;
+}
+.services .service.service4 {
+  border-top: 1px solid #e5e5e5;
+}
+.services .service.service5 {
+  border-top: 1px solid #e5e5e5;
+}
+.services .service.service6 {
+  border-top: 1px solid #e5e5e5;
+}
+.services .service h3 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+  color: #333333;
+}
+
+.design {
+  background-image: url(../images/unique-design/bg-unique-design.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.design .phoneImg2 {
+  top: 25%;
+  left: 75%;
+}
+
+.what-we-do .serviceImg {
+  width: 97%;
+}
+.what-we-do .contant .accordion-button {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+  color: #333333;
+}
+.what-we-do .contant .accordion-button .icon {
+  font-size: 2rem;
+}
+.what-we-do .contant p {
+  height: 4rem;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+}
+.what-we-do .contant p::-webkit-scrollbar {
+  width: 3px;
+}
+.what-we-do .contant p::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px grey;
+  border-radius: 2px;
+}
+.what-we-do .contant p::-webkit-scrollbar-thumb {
+  background: #95e1d3;
+  border-radius: 2px;
+}
+
+.quote {
+  background-color: #f8f8f8;
+}
+.quote .icon {
+  padding: 20%;
+  border: 2px solid #95e1d3;
+  font-size: 3rem;
+}
+.quote .contant {
+  font-style: italic;
+}
+.quote .contant q {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-family: "Roboto";
+  color: #999999;
+}
+.quote .contant h3 {
+  color: #333333;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Kaushan";
+  padding-left: 65px;
+}
+.quote .contant h3::before {
+  content: "";
+  height: 3px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: #f38181;
+}
+
+.meet-our-team figcaption h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+  color: #333333;
+}
+.meet-our-team figcaption p {
+  font-style: italic;
+}
+.meet-our-team .contant {
+  width: 50%;
+  height: 3rem;
+  background-color: #fce38a;
+}
+.meet-our-team .contant .icon1 {
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meet-our-team .contant .icon1 a {
+  color: #f38181;
+}
+.meet-our-team .contant .icon1:not(:last-of-type) {
+  border-right: 1px solid #f38181;
+}
+.meet-our-team .contant .icon1:hover {
+  background-color: #f38181;
+  cursor: pointer;
+}
+.meet-our-team .contant .icon1:hover a {
+  color: #ffffff;
+}
+
+.brand {
+  background-color: #f8f8f8;
+}
+.brand img {
+  width: 100%;
+  transition: all 0.5s linear;
+}
+.brand img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.our-work .container-fluid .image {
+  position: relative;
+}
+.our-work .container-fluid .image img {
+  width: 100%;
+}
+.our-work .container-fluid .image .overlaye {
+  opacity: 0;
+  background-image: linear-gradient(0deg, #e2cc7b 0%, #db7474 100%);
+  transition: all 1s;
+}
+.our-work .container-fluid .image .overlaye .contant {
+  display: none;
+  color: #ffffff;
+}
+.our-work .container-fluid .image .overlaye .contant h4 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+.our-work .container-fluid .image .overlaye .contant p {
+  font-size: 0.75rem;
+  font-weight: 300;
+  font-family: "Roboto";
+  font-style: italic;
+}
+.our-work .container-fluid .image:hover .overlaye {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+}
+.our-work .container-fluid .image:hover .contant {
+  display: block;
+}
+
+.happy-client {
+  background-image: url(../images/happy-client/bg-happy-client.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.happy-client .contant {
+  color: #333333;
+}
+.happy-client .contant h3 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+.happy-client .contant h5 {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  font-family: "Roboto";
+  font-style: italic;
+  color: #999999;
+}
+.happy-client .contant h5::after {
+  content: "";
+  height: 3px;
+  width: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #f38181;
+}
+.happy-client .contant p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-family: "Roboto";
+  color: #999999;
+}
+
+.blog .image .date {
+  color: #ffffff;
+  position: absolute;
+  bottom: 1rem;
+  left: -0.5rem;
+  padding: 1rem 1rem 0;
+  background-color: #95e1d3;
+}
+.blog .image .date h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+  line-height: 1.5rem;
+}
+.blog .image .date h5 {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  font-family: "Roboto";
+  font-style: italic;
+}
+.blog .contant h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Montserrat";
+  color: #333333;
+}
+.blog .contant .rate i {
+  color: #95e1d3;
+}
+.blog .contant .rate span {
+  margin-right: 0.25rem;
+  opacity: 0.5;
+}
+
+.map {
+  background-image: url(../images/map/bg-map.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.map .contant {
+  color: #f38181;
+}
+.map .contant a {
+  color: #f38181;
+  font-size: 2rem;
+}
+
+footer {
+  background-color: #f8f8f8;
+}
+footer .logo h2 {
+  font-size: 3.125rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+  color: #999999;
+}
+footer .logo h5 {
+  font-size: 1rem;
+}
+footer .logo h5 span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "MontserratBold";
+}
+footer .logo .follow span {
+  font-style: italic;
+}
+footer .logo .follow li a {
+  color: #95e1d3;
+}
+footer .logo .email {
+  background-color: #fff;
+  color: #333333;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  outline: none;
+}
+footer .logo .subscribeBtn, footer .logo .subscribeBtn:hover {
+  color: #ffffff;
+  background-color: #95e1d3;
+}
+footer .blogs .discription span {
+  font-style: italic;
+}
+footer .instagram a {
+  color: #999999;
+  text-decoration: none;
+  font-style: italic;
+}
+footer .copyRight .social a {
+  color: #f38181;
+}
+footer .copyRight span {
+  color: #f38181;
+}
+
+@media only screen and (max-width: 998px) {
+  .navbar .nav-item .nav-link.active, .navbar .nav-item .nav-link:hover {
+    border-bottom: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+  header .hero-section .contant h3 {
+    font-size: 1.5625rem;
+    font-weight: 400;
+    font-family: "Kaushan";
+  }
+  header .hero-section .contant h1 {
+    font-size: 3.125rem;
+    font-weight: 700;
+    font-family: "MontserratBold";
+    line-height: 3rem;
+  }
+  .services .service.service3 {
+    border-top: 1px solid #e5e5e5;
+  }
+  .what-we-do .serviceImg {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  header .hero-section h1 {
+    display: none;
+  }
+  .services .service.service2 {
+    border-top: 1px solid #e5e5e5;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,46 @@
+
+@font-face {
+    font-family: Kaushan;
+    src: url('../fonts/KaushanScript-Regular.woff');
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../fonts/Montserrat-Regular.woff');
+}
+
+@font-face {
+    font-family: MontserratBold;
+    src: url('../fonts/Montserrat-Bold.woff');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.woff');
+}
+
+@mixin font($size , $weight , $family) {
+    font: {
+        size: $size ;
+        weight: $weight;
+        family:$family;
+    }
+}
+
+@mixin respond($breakPoint) {
+    @if $breakPoint == mobile{
+        @media only screen and (max-width: 576px) {
+            @content;
+          }
+    }
+    @else if $breakPoint == ipad {
+        @media only screen and (max-width: 768px) {
+            @content;
+          }
+    }
+    @else if $breakPoint == ipadXL {
+        @media only screen and (max-width: 998px) {
+            @content;
+          }
+    }
+}

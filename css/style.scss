@@ -1,0 +1,742 @@
+@import './base/var';
+@import './base/function';
+@import './base/mixin';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    font-size: 16px;
+}
+
+p {
+    @include font(convertToRem(12), 400, 'Roboto');
+    color: $textColor2;
+    line-height: 24px;
+}
+
+// Start Special heading for any section
+.heading {
+    h3 {
+        @include font(convertToRem(18), 400, 'Kaushan');
+    }
+
+    h2 {
+        @include font(convertToRem(30), 700, 'MontserratBold');
+    }
+
+    h2::after {
+        content: "";
+        height: 3px;
+        width: 60px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $secondColor;
+    }
+}
+
+// End Special heading for any section
+
+// for color tho all icons
+.icon {
+    color: $primayColor;
+}
+
+// Start Up button 
+.UpBtn {
+    width: 2rem;
+    height: 2rem;
+    bottom: 2rem;
+    right: 1rem;
+    z-index: 100;
+    opacity: 0;
+    transition: all .5s linear;
+
+    .bttnUP {
+        background-color: $secondColor;
+        border: none;
+
+        &::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border: 0 solid white;
+            border-width: 2px 2px 0 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+
+        }
+
+    }
+}
+
+// End Up button 
+
+// Start navBar
+.navbar {
+    .navbar-brand {
+        @include font(convertToRem(30), 700, 'MontserratBold');
+    }
+
+    .nav-item {
+        margin-right: 3rem;
+
+        .nav-link {
+            text-transform: uppercase;
+            color: white;
+            @include font(convertToRem(14), 400, 'Montserrat');
+
+            &.active,
+            &:hover {
+                color: #fbe389;
+                border-bottom: 3px solid #fbe389;
+            }
+        }
+    }
+
+}
+
+// End navBar
+
+
+// Start header
+header {
+    background-image: url(../images/bg-header.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient($linerColor);
+        opacity: .9;
+    }
+
+    .hero-section {
+        .contant {
+            h3 {
+                @include font(convertToRem(50), 400, 'Kaushan');
+            }
+
+            h1 {
+                @include font(convertToRem(120), 700, 'MontserratBold');
+                line-height: 6rem;
+
+                &::after {
+                    content: '';
+                    width: 10%;
+                    height: 3px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: white;
+                }
+            }
+
+            .btn-learnMore {
+                @include font(convertToRem(14), 700, 'MontserratBold');
+                border: 3px solid white;
+                background-color: transparent;
+            }
+        }
+
+        .carousel-indicators {
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            [data-bs-target] {
+                text-indent: 0;
+                width: 90%;
+                position: relative;
+
+                &.active+p {
+                    opacity: 1;
+                }
+            }
+
+            .active[data-bs-target]::before {
+                content: '';
+                width: 25%;
+                height: 3px;
+                background-color: $secondColor;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .carousel-text {
+                color: $white;
+                text-transform: uppercase;
+                opacity: .5;
+
+                .carousel-num {
+                    @include font(convertToRem(24), 700, 'MontserratBold');
+                }
+            }
+        }
+    }
+}
+
+// End header
+
+// Start aboutUS
+.aboutUs,
+.meet-our-team {
+    .image {
+        z-index: 10;
+    }
+
+    .image:hover {
+        transform: translate(-10px, -10px);
+        box-shadow: 10px 10px 0px $primayColor;
+        z-index: -1;
+    }
+
+    .overlaye {
+        opacity: 0;
+        background-image: linear-gradient($linerColor);
+        transition: all 1s;
+    }
+
+    .image:hover .overlaye {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .9;
+    }
+
+    .contant {
+        display: none;
+
+        p {
+            @include font(convertToRem(18), 700, 'MontserratBold');
+        }
+    }
+
+    .image:hover .contant {
+        display: block;
+    }
+
+}
+
+// End aboutUS
+
+
+//Start facts
+.facts {
+    background-color: $primayColor;
+
+    .fact {
+
+        .number {
+            @include font(convertToRem(72), 700, 'MontserratBold');
+        }
+
+        .text {
+            @include font(convertToRem(14), 400, 'Montserrat');
+        }
+    }
+}
+
+//End fact
+
+// Start services
+.services {
+    .lineRow {
+        padding-top: 1.5rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .service {
+        padding: 1.5rem 0;
+
+        @for $i from 4 to 7 {
+            &.service#{$i} {
+                border-top: 1px solid #e5e5e5;
+            }
+        }
+
+        h3 {
+            @include font(convertToRem(14), 400, 'Montserrat');
+            color: $textColor;
+        }
+    }
+}
+
+// End services
+
+// Start design section
+.design {
+    background-image: url(../images/unique-design/bg-unique-design.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    .phoneImg2 {
+        top: 25%;
+        left: 75%;
+    }
+}
+
+// End design section
+
+//Start what-we-do
+.what-we-do {
+    .serviceImg {
+        width: 97%
+    }
+
+    .contant {
+        .accordion-button {
+            @include font(convertToRem(14), 400, 'Montserrat');
+            color: $textColor;
+
+            .icon {
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            height: 4rem;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 1px grey;
+                border-radius: 2px;
+            }
+
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $primayColor;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+//End what-we-do
+
+// Start quote
+.quote {
+    background-color: $bgColor;
+
+    .icon {
+        padding: 20%;
+        border: 2px solid $primayColor;
+        font-size: 3rem;
+    }
+
+    .contant {
+        font-style: italic;
+
+        q {
+            @include font(convertToRem(24), 300, 'Roboto');
+
+            color: $textColor2;
+        }
+
+        h3 {
+            color: $textColor;
+            @include font(convertToRem(24), 400, 'Kaushan');
+            padding-left: 65px;
+
+            &::before {
+                content: "";
+                height: 3px;
+                width: 60px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                background-color: $secondColor;
+            }
+        }
+
+    }
+}
+
+// End quote
+
+// Start meet-our-team
+.meet-our-team {
+    figcaption {
+        h4 {
+            @include font(convertToRem(14), 700, 'MontserratBold');
+            color: $textColor;
+
+        }
+
+        p {
+            font-style: italic;
+        }
+
+    }
+
+    .contant {
+        width: 50%;
+        height: 3rem;
+        background-color: $bgIcon;
+
+        .icon1 {
+            width: 25%;
+            height: 100%;
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                color: $secondColor;
+            }
+
+            &:not(:last-of-type) {
+                border-right: 1px solid $secondColor;
+            }
+
+            &:hover {
+                background-color: $secondColor;
+                cursor: pointer;
+
+                & a {
+                    color: $white;
+                }
+            }
+        }
+
+    }
+}
+
+// End meet-our-team
+
+// Start brand
+.brand {
+    background-color: $bgColor;
+
+    img {
+        width: 100%;
+        transition: all .5s linear;
+    }
+
+    img:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+// End brand
+
+// Start our-work
+.our-work {
+    .container-fluid {
+        .image {
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .overlaye {
+                opacity: 0;
+                background-image: linear-gradient($linerColor);
+                transition: all 1s;
+
+                .contant {
+                    display: none;
+                    color: $white;
+
+                    h4 {
+                        @include font(convertToRem(14), 400, 'Montserrat');
+                    }
+
+                    p {
+                        @include font(convertToRem(12), 300, 'Roboto');
+                        font-style: italic;
+                    }
+                }
+            }
+
+            &:hover {
+                .overlaye {
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: .9;
+                }
+
+                .contant {
+                    display: block;
+                }
+            }
+        }
+
+    }
+}
+
+// End our-work
+
+// Start happy-client
+.happy-client {
+    background-image: url(../images/happy-client/bg-happy-client.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    .contant {
+        color: $textColor;
+
+        h3 {
+            @include font(convertToRem(14), 400, 'Montserrat');
+        }
+
+        h5 {
+            @include font(convertToRem(15), 300, 'Roboto');
+            font-style: italic;
+            color: $textColor2;
+            &::after {
+                content: "";
+                height: 3px;
+                width: 60px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: $secondColor;
+            }
+        }
+
+        p {
+            @include font(convertToRem(15), 400, 'Roboto');
+            color: $textColor2;
+        }
+    }
+
+}
+// End happy-client
+
+// Start blog
+.blog{
+    .image{
+        .date{
+            color: $white;
+            position: absolute;
+            bottom: 1rem;
+            left: -.5rem;
+            padding: 1rem 1rem 0;
+            background-color: $primayColor;
+            h3{
+                @include font(convertToRem(32), 700, 'MontserratBold');
+                line-height: 1.5rem;
+            }
+            h5{
+                @include font(convertToRem(15), 300, 'Roboto');
+                font-style: italic;
+            }
+        }
+    }
+    .contant{
+        h4 {
+            @include font(convertToRem(16), 700, 'Montserrat');
+            color: $textColor;
+        }
+        .rate {
+            i{
+                color: $primayColor;
+            }
+            span{
+                margin-right: .25rem;
+                opacity: .5;
+            }
+        }
+    }
+}
+// End blog
+
+// Start map
+.map{
+    background-image: url(../images/map/bg-map.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    .contant {
+        color: $secondColor;
+        a {
+            color: $secondColor;
+            font-size: 2rem;
+        }
+        
+    }
+
+}
+// End map
+
+// Start footer
+footer{
+    background-color: $bgColor;
+
+    .logo{
+        h2{
+            @include font(convertToRem(50), 700, 'MontserratBold');
+            color: $textColor2;
+        }
+
+        h5{
+            font-size: 1rem;
+            span{
+            @include font(convertToRem(24), 700, 'MontserratBold');
+            }
+        }
+
+        .follow{
+            span {
+                font-style: italic;
+                // @include font(convertToRem(16), 400, 'Kaushan');
+            }
+            li{
+                a {
+                    color: $primayColor;
+                }
+            }
+        }
+
+        .email{
+            background-color: #fff;
+            color: $textColor;
+            padding:0.75rem;
+            border: 1px solid #ced4da;
+            outline: none;
+            // width: 70%;
+        }
+
+        .subscribeBtn , .subscribeBtn:hover{
+            color: $white;
+            background-color: $primayColor;
+        }
+    }
+
+    .blogs {
+        .discription{
+            span {
+                font-style: italic;
+            }
+        }
+    }
+
+    .instagram{
+        a {
+            color: $textColor2;
+            text-decoration: none;
+            font-style: italic;
+        }
+    }
+
+    .copyRight{
+        .social{
+            a{
+                color: $secondColor;
+            }
+        }
+
+        span {
+            color: $secondColor;
+        }
+    }
+}
+// End footer
+
+
+@include respond(ipadXL) {
+
+    // Start navBar
+    .navbar {
+        .nav-item {
+            .nav-link {
+
+                &.active,
+                &:hover {
+                    border-bottom: none;
+                }
+            }
+        }
+
+    }
+
+    // End navBar
+}
+
+@include respond(ipad) {
+    :root {
+        font-size: 14px;
+    }
+
+
+
+    header {
+        .hero-section {
+            .contant {
+                h3 {
+                    @include font(convertToRem(25), 400, 'Kaushan');
+                }
+
+                h1 {
+                    @include font(convertToRem(50), 700, 'MontserratBold');
+                    line-height: 3rem;
+                }
+            }
+        }
+    }
+
+    .services {
+        .service {
+            @for $i from 3 to 4 {
+                &.service#{$i} {
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+        }
+    }
+
+    .what-we-do {
+        .serviceImg {
+            width: 100%
+        }
+    }
+}
+
+// media Quary
+@include respond(mobile) {
+    header {
+        .hero-section {
+            h1 {
+                display: none;
+            }
+        }
+    }
+
+    .services {
+        .service {
+            @for $i from 2 to 3 {
+                &.service#{$i} {
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+        }
+    }
+}
